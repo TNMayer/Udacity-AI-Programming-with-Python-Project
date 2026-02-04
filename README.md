@@ -1,7 +1,7 @@
 # Transformational AI - Amazon Reviews Data Science Project
 
 ## Project Overview
-This project involves analyzing and transforming Amazon Reviews 2023 datasets for machine learning model development. You will work with pandas DataFrames, create visualizations using seaborn and matplotlib, and export cleaned data in .csv and .parquet formats.
+This project analyzes Amazon Reviews 2023 datasets to prepare a cleaned product dataset for machine learning. It uses pandas for data transformation, matplotlib/seaborn for visualization (including a regression line with a confidence band), and exports cleaned results to .csv and .parquet. The notebook also captures reflection answers and writes them to a text file.
 
 ## Environment Setup
 
@@ -50,20 +50,39 @@ conda env remove -n transformational_ai
 ```
 01_Python_for_AI/
 ├── README.md
-├── .gitignore
-├── environment.yml                # Conda environment specification
-└── amazon_reviews_analysis.ipynb  # Main analysis notebook
+├── RUBRIC.md
+├── environment.yml                      # Conda environment specification
+├── Udacity - PCEP Project.ipynb         # Main analysis notebook
+├── user_inputs.txt                      # Reflection answers (generated)
+└── data/
+	├── top_products.csv                 # Cleaned dataset export
+	└── top_products.parquet             # Cleaned dataset export
 ```
 
 ## Learning Objectives
-- Set up a Python environment using Jupyter Notebooks
-- Utilize pandas, matplotlib, and seaborn for data manipulation and visualization
-- Perform data transformation and export cleaned datasets
-- Generate insightful visualizations for business insights
-- Reinforce Pythonic concepts for PCEP exam preparation
+- Set up and use a Python environment with Jupyter Notebooks
+- Load large datasets with sampling and transform data using pandas
+- Visualize distributions and relationships, including regression with a confidence band
+- Export cleaned datasets to .csv and .parquet
+- Capture and save reflection answers to a text file
 
 ## Data Sources
-- Amazon Reviews 2023 datasets from Hugging Face
+- Amazon Reviews 2023 datasets from Hugging Face (Electronics reviews + metadata)
+
+## Rubric Coverage Checklist
+All rubric criteria are addressed in the notebook:
+
+- Environment checks and package installs ✅
+- Reviews and metadata datasets loaded with limits and boolean parameters ✅
+- Data inspection via `.head()`, `.columns`, `.dtypes`, and `.info()` ✅
+- Robust product lookup with `try/except` ✅
+- Cleaning and filtering for top products (rating and price constraints) ✅
+- Percentage calculation function ✅
+- CSV and Parquet exports ✅
+- Title list extraction ✅
+- Histogram and scatterplot visualizations (including regression line + confidence band) ✅
+- 4.7 rating cutoff and sorted highly rated table ✅
+- Reflection answers exported to `user_inputs.txt` ✅
 
 ## Troubleshooting
 
