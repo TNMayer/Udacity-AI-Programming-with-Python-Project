@@ -1,0 +1,75 @@
+Transformational AI: Analyzing Ecommerce Large Datasets for Machine Learning
+Completed by: Thomas Mayer
+—————————————-
+
+Question 1: 
+The DataFrame contains 100 Amazon Electronics reviews with columns: 
+* rating (float - the star rating), 
+* title (string - review title), 
+* text (string - review body), 
+* images (list - attached images), 
+* asin (string - product ID), 
+* parent_asin (string - parent product ID), 
+* user_id (string - reviewer ID), 
+* timestamp (integer - Unix time), 
+* verified_purchase (boolean - if purchase was verified), 
+* and helpful_vote (integer - helpfulness count). 
+
+Each row represents one customer review with product identifiers, review content, images, and metadata.
+
+Question 2: 
+The output from .head() was somewhat expected in terms of the number of reviews but also surprising in terms of formatting. 
+As expected, it displayed the first 5 rows of the DataFrame (indices 0-4). However, the 
+plain text format made the output harder to read compared to the rich HTML table from 
+before - the columns were split across multiple lines/blocks rather than displayed in a 
+single row per record.
+
+Question 3: 
+We used pd.set_option() to customize how pandas displays the DataFrame output. Specifically:
+1. 'display.max_columns' set to None - ensures all columns are shown without truncation.
+2. 'display.width' set to 1000 - increases the width of the content which gets displayed in one row to 1000 characters.
+3. 'display.max_colwidth' set to 50 - limits individual column content width in one column to 50 characters.
+
+We also created a variable Items_To_Print set to 10, which was passed to .head(Items_To_Print) 
+to display the first 10 rows instead of the default 5.
+
+Question 4: 
+The Reviews dataset and the Reviews Metadata dataset have different purposes and structures:
+
+**Reviews Dataset** contains customer feedback with columns like:
+- rating, title, text (review content)
+- user_id, timestamp, verified_purchase, helpful_vote (user/review metadata)
+- asin, parent_asin, images (product identifiers)
+
+**Metadata Dataset** contains product information with columns like:
+- title, description, features, price (product details)
+- average_rating, rating_number (aggregated review statistics)
+- main_category, categories, store (classification info)
+- images, videos, details (media and specs)
+
+The key difference of the two datasets is, that the Reviews dataset focuses on individual customer reviews and their associated metadata, 
+while the Metadata dataset provides aggregated data on product-level (aggregated on product title level).
+
+Question 5: 
+I find the .info() method to be the most insightful and helpful data analysis method. It provides a 
+comprehensive summary of the DataFrame in one output, including:
+- The total number of entries (rows)
+- Column names and their count
+- Non-null counts for each column (helps identify missing data)
+- Data types for each column
+- Memory usage
+
+While .columns gives just column names and .dtypes shows only data types, .info() combines this 
+information and adds valuable context about data completeness.
+
+Question 6: 
+The histogram suggests a right-skewed distribution:
+This means that the mean is greater than the median; the
+most highly rated products cluster at lower price points, and frequency decreases as price increases. 
+There are only a few higher-priced items, forming a long tail.
+
+Question 7: 
+The scatterplot shows no strong linear relationship between price and rating. 
+Ratings stay clustered between about 4.5 and 5.0 across a wide range of prices, with only a few 
+higher-priced outliers.
+
